@@ -77,6 +77,8 @@ namespace WindowsFormApplication1 {
 	private: array<System::String^> ^zaznaczone = gcnew array<System::String^>(10);
 	//tabela  pytan 0-tresc pytania, 1-odp1, 2-odp2, 3-odp3, 4-odp4, 5- prawidlowa odpowiedz
 	private: array<System::String^,2> ^pytanie = gcnew array<System::String^,2>(10,6);
+	//tabela kolorow:
+	private: array<System::Drawing::Color> ^kolor = gcnew array<System::Drawing::Color>(10);
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -750,10 +752,26 @@ namespace WindowsFormApplication1 {
 			for (int i = 0; i < 10; i++){
 				if (zaznaczone[i] == pytanie[i, 5]){
 					licznik++;
+					kolor[i] = System::Drawing::Color::Green;
+				}
+				else{
+					kolor[i] = System::Drawing::Color::Red;
 				}
 			}
 
 			//wyswietlenie wyniku
+
+			zo1->ForeColor = kolor[0];
+			zo2->ForeColor = kolor[1];
+			zo3->ForeColor = kolor[2];
+			zo4->ForeColor = kolor[3];
+			zo5->ForeColor = kolor[4];
+			zo6->ForeColor = kolor[5];
+			zo7->ForeColor = kolor[6];
+			zo8->ForeColor = kolor[7];
+			zo9->ForeColor = kolor[8];
+			zo10->ForeColor = kolor[9];
+
 			wynik->Text = "Gratulacje, uda³o Ci siê uzyskaæ " + (licznik * 10).ToString() + "% punktów!!!";
 
 			rozpocznij->Text = "Zakoñcz";
